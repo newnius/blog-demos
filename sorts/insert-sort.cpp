@@ -61,6 +61,25 @@ int insert_sort2(int *src, int size){
     return 0;
 }
 
+//edited by yqy
+void insertsort(vector<int> &arr)
+{
+	for (int i = 1; i < arr.size(); ++i) //n-1次扫描，依次向前插入n-1个元素
+	{
+		int tmp = arr[i]; //每趟将a[i]插入到前面的排序子序列中
+		int j = i - 1;
+		while(j >= 0 && tmp < arr[j])
+		{
+			arr[j + 1] = arr[j];//将前面较大的元素向后移动 
+			--j;
+		}
+		arr[j + 1] = tmp;//temp值到达插入位置
+	}
+}
+//end 
+
+
+
 /* 二分查找插入排序
  *  检索使用二分查找，减少了检索次数，但是赋值次数不会减少
  *  没有太大改进，而且代码不简洁。略
